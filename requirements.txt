@@ -1,5 +1,5 @@
 streamlit==1.25.0
 tensorflow==2.15.0
 numpy==1.25.0
-wikipedia==0.5.4
+wikipedia==0.9.3
 google_images_download==2.8.0
