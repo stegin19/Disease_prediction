@@ -2,7 +2,7 @@ import streamlit as st
 import tensorflow as tf
 import time
 import numpy as np
-import wikipedia
+#import wikipedia
 from google_images_download import google_images_download
 
 
@@ -18,12 +18,12 @@ def model_prediction(test_image):
     predictions = model.predict(image)
     return np.argmax(predictions)
 
-def get_wikipedia_summary(disease_name):
-    try:
-        return wikipedia.summary(disease_name, sentences=5)
-    except wikipedia.exceptions.DisambiguationError as e:
-        # If there are multiple pages with similar names, you can handle it here
-        return f"Multiple pages found for '{disease_name}'. Please specify."
+# def get_wikipedia_summary(disease_name):
+#     try:
+#         return wikipedia.summary(disease_name, sentences=5)
+#     except wikipedia.exceptions.DisambiguationError as e:
+#         # If there are multiple pages with similar names, you can handle it here
+#         return f"Multiple pages found for '{disease_name}'. Please specify."
 
 
 
@@ -94,10 +94,10 @@ elif(app_mode=="Disease Recognition"):
                 
             predicted_disease = class_name[result_index]
             st.success(predicted_disease)
-            try:
-                summary = get_wikipedia_summary(predicted_disease)
-                st.markdown(f"### Summary for {predicted_disease}")
-                st.success(summary)
-            except wikipedia.exceptions.PageError:
-                st.error(f"No Wikipedia page found for {predicted_disease}.")
+            # try:
+            #     summary = get_wikipedia_summary(predicted_disease)
+            #     st.markdown(f"### Summary for {predicted_disease}")
+            #     st.success(summary)
+            # except wikipedia.exceptions.PageError:
+            #     st.error(f"No Wikipedia page found for {predicted_disease}.")
  
